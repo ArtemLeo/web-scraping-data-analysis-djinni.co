@@ -1,5 +1,5 @@
 import scrapy
 
 
-class ScrapeDjinnyItem(scrapy.Item):
+class ScrapeDjinniItem(scrapy.Item):
     pass

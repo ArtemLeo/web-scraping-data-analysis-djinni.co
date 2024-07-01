@@ -2,37 +2,43 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import difflib
 
+# Завантаження даних
 file_path = r"../web-scraping-data-analysis-djinni/vacancies.csv"
-df = pd.read_csv(file_path)
+data_frame = pd.read_csv(file_path)
 
-df["technologies"] = df["technologies"].str.lower()
+# Перетворення технологій у нижній регістр
+data_frame["technologies"] = data_frame["technologies"].str.lower()
 
-df_technologies = (
-    df["technologies"]
+# Розділення технологій у окремі рядки
+technologies_series = (
+    data_frame["technologies"]
     .str.split(",\s*", expand=True)
     .stack()
     .reset_index(level=1, drop=True)
     .rename("technology")
 )
-df_split = df.drop("technologies", axis=1).join(df_technologies)
+data_frame_split = data_frame.drop("technologies", axis=1).join(technologies_series)
 
+# Групування схожих технологій
 grouped_technologies = {}
-for tech in df_split["technology"].unique():
-    similar_tech = difflib.get_close_matches(
-        tech, grouped_technologies.keys(), n=1, cutoff=0.8
+for technology in data_frame_split["technology"].unique():
+    similar_technology = difflib.get_close_matches(
+        technology, grouped_technologies.keys(), n=1, cutoff=0.8
     )
-    if similar_tech:
-        grouped_technologies[similar_tech[0]] += df_split[
-            df_split["technology"] == tech
+    if similar_technology:
+        grouped_technologies[similar_technology[0]] += data_frame_split[
+            data_frame_split["technology"] == technology
         ].shape[0]
     else:
-        grouped_technologies[tech] = (
-            df_split[df_split["technology"] == tech].shape
-        )[0]
+        grouped_technologies[technology] = (
+            data_frame_split[data_frame_split["technology"] == technology].shape[0]
+        )
 
-
+# Створення серії з кількістю технологій
 technology_counts = pd.Series(grouped_technologies)
 technology_counts.sort_values(ascending=False, inplace=True)
+
+# Візуалізація даних
 plt.figure(figsize=(10, 6))
 technology_counts.head(30).plot(kind="bar", color="skyblue")
 plt.title("Top 30 Popular Technologies in Job Vacancies")
