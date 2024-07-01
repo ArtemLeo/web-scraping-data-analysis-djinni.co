@@ -1,7 +1,7 @@
-BOT_NAME = "scrape_djinny"
+BOT_NAME = "djinni_scrapper"
 
-SPIDER_MODULES = ["scrape_djinny.spiders"]
-NEWSPIDER_MODULE = "scrape_djinny.spiders"
+SPIDER_MODULES = ["djinni_scrapper.spiders"]
+NEWSPIDER_MODULE = "djinni_scrapper.spiders"
 
 ROBOTSTXT_OBEY = False
 
