@@ -5,26 +5,32 @@
    <li>It achieves this by scraping job vacancies from Djinni and performing data analysis on the extracted data.</li>
 </ul>
 
-## Project Structure
+### 🏞 Project Image:
+![Main](images/project_main.png)
 
-### The project structure is organized as follows:
-
-* **scraping/:** Contains the Scrapy spider (vacancies.py) for scraping job vacancies from Djinni.
-* **data_analysis/:** Contains the script (analyze_data.py) for analyzing the scraped data and generating visualizations.
+## Project Structure:
+* **djinni_scrapper:** Contains the Scrapy spider (vacancies.py) for scraping job vacancies from Djinni.
+* **data_analysis:** Contains the script (analyze_data.py) for analyzing the scraped data and generating visualizations.
 * **vacancies.csv:** CSV file to store the scraped job vacancies data.
 * **requirements.txt:** File containing the required Python packages for the project.
 
-## Scraping
-The scraping part of the project utilizes Scrapy to crawl Djinni's job listings for Python-related vacancies. The spider (vacancies.py) follows links to individual job postings and extracts information such as job title and required technologies.
+### 🏞 Top 30 Technologies:
+![Top 30](images/top_30_popular_technologies.png)
 
-## Data Analysis
-The data analysis part of the project involves using pandas and matplotlib to analyze the scraped data. The script (analyze_data.py) reads the CSV file (vacancies.csv), cleans the data, counts the occurrences of each technology, and generates a bar chart showing the top 10 popular technologies in job vacancies.
+### Scraping:
+- The scraping section uses Scrapy to crawl Djinni for Python-related job listings.
+- The spider (vacancies.py) follows links to job postings, extracting details like job titles and required technologies.
 
-## Results
-After running the data analysis script, you will see a bar chart titled "Top 10 Popular Technologies in Job Vacancies" showing the count of each technology mentioned in the job listings.
+### Data Analysis:
+- The data analysis uses pandas and matplotlib to analyze scraped data.
+- The script (analyze_data.py) reads vacancies.csv, cleans data, counts technology occurrences, and generates a bar chart of the top 30 popular job vacancy technologies.
 
-## Contributing
-Contributions to improve the project are welcome! If you have any suggestions, bug reports, or feature requests, please feel free to open an issue or submit a pull request.
+### Results:
+- After running the data analysis script, you will see a bar chart titled "Top 30 Popular Technologies in Job Vacancies".
+- This chart shows the count of each technology mentioned in the job listings.
+
+### 🏞 Top 10 Job Locations:
+![Top 10 Job Locations](images/top_10_job_locations.png)
 
 ## Installation:
 <ul>
@@ -50,6 +56,8 @@ pip install -r requirements.txt
 
 ```
 
+### 🏞 Number of Jobs per Company:
+![Number of Jobs per Company](images/number_of_jobs_per_company.png)
 
 ## Usage:
 ```shell
@@ -59,6 +67,12 @@ pip install -r requirements.txt
 
 ▪️ Run the data analysis script to analyze the scraped data.
 ▪️ This command reads data from vacancies.csv, analyzes it, and generates a bar chart displaying the top 10 popular technologies in job vacancies.
-👉 'python analyze_data.py'
+👉 'python data_analysis/analyze.py'
 
 ```
+### 🏞 Average Salary by Country (in USD):
+![Average Salary by Country (in USD)](images/average_salary_by_country_in_usd.png)
+
+## Contributing 👨‍💻🤝💪:
+- Contributions to improve the project are welcome, including suggestions, bug reports, and feature requests.
+- Feel free to open an issue or submit a pull request for any contributions you'd like to make.
