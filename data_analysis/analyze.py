@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import difflib
 
-file_path = r"../djinni_scrapper/vacancies.csv"
+file_path = r"../web-scraping-data-analysis-djinni/vacancies.csv"
 df = pd.read_csv(file_path)
 
 df["technologies"] = df["technologies"].str.lower()
